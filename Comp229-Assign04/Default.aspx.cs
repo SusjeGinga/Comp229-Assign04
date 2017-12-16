@@ -13,14 +13,64 @@ namespace Comp229_Assign04
 {
     public partial class _Default : Page
     {
+        List<Models> jsonList;
+        string path = HttpContext.Current.Server.MapPath("~/Assets/Assign04.json");
+        string path2 = HttpContext.Current.Server.MapPath("~/Assets/Assign042.json");
+
         protected void Page_Load(object sender, EventArgs e)
-        {
-            string path = HttpContext.Current.Server.MapPath("~/Assets/Assign04.json");
+        {    
             string data = File.ReadAllText(path);
-            var collection = JsonConvert.DeserializeObject<List<Models>>(data);
-            allModel.DataSource = collection;
+            jsonList = JsonConvert.DeserializeObject<List<Models>>(data);
+            allModel.DataSource = jsonList;
             allModel.DataBind();
         }
+        protected void AddBtn_Click(object sender, EventArgs e)
+        {
+            Action action = new Action
+            {
+                name = actionNameTxt.Text,
+                type = "",
+                rating = 0,
+                range = ""
+            };
+            List<Action> actionsList = new List<Action> { };
+            actionsList.Add(action);
+
+            SpecialAbility specialAbility = new SpecialAbility
+            {
+                name = specNameTxt.Text,
+                description = ""
+            };
+            List<SpecialAbility> specialAbilityList = new List<SpecialAbility> { };
+            specialAbilityList.Add(specialAbility);
+
+            Models model = new Models
+            {
+                modelsName = nameTxt.Text,
+                faction = factionTxt.Text,
+                rank = int.Parse(rankTxt.Text),
+                _base = int.Parse(baseTxt.Text),
+                size = int.Parse(sizeTxt.Text),
+                deploymentZone = depZoneTxt.Text,
+                traits = new string[] { "" },
+                types = new string[] { "" },
+                defenseChart = new string[] { "" },
+                mobility = 0,
+                willpower = 0,
+                resiliance = 0,
+                wounds = 0,
+                actions = actionsList,
+                specialAbilities = specialAbilityList,
+                imageUrl = ""
+            };
+
+
+            StreamWriter writer = File.CreateText(path2);
+            writer.WriteLine(JsonConvert.SerializeObject(model));
+
+            Response.Redirect(Request.Path);
+        }
+        
 
     }
 }
