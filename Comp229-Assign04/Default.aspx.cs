@@ -64,11 +64,10 @@ namespace Comp229_Assign04
                 imageUrl = ""
             };
 
+            jsonList.Add(model);
+            File.WriteAllText(path2, JsonConvert.SerializeObject(jsonList));
 
-            StreamWriter writer = File.CreateText(path2);
-            writer.WriteLine(JsonConvert.SerializeObject(model));
-
-            Response.Redirect(Request.Path);
+            Response.Redirect("Default.aspx");
         }
         
 
