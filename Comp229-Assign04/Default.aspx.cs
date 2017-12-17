@@ -46,7 +46,7 @@ namespace Comp229_Assign04
 
             Models model = new Models
             {
-                modelsName = nameTxt.Text,
+                name = nameTxt.Text,
                 faction = factionTxt.Text,
                 rank = int.Parse(rankTxt.Text),
                 _base = int.Parse(baseTxt.Text),

@@ -8,8 +8,8 @@ namespace Comp229_Assign04
 {
     public class Models
     {
-        [JsonProperty("name")]
-        public string modelsName { get; set; }
+        //[JsonProperty("name")]
+        public string name { get; set; }
         public string faction { get; set; }
         public int rank { get; set; }
         public int _base { get; set; }
@@ -32,6 +32,7 @@ namespace Comp229_Assign04
         public string type { get; set; }
         public int rating { get; set; }
         public string range { get; set; }
+        public string description { get; set; }
     }
 
     public class SpecialAbility

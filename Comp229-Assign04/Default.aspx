@@ -6,8 +6,8 @@
     <div>
         <asp:GridView ID="allModel" runat="server" AutoGenerateColumns="false">
             <Columns>
-                <asp:HyperLinkField DataTextField="modelsName"
-                    DataNavigateUrlFormatString="Model.aspx?Name={0}" HeaderText="Name" />
+                <asp:HyperLinkField DataTextField="name" DataNavigateUrlFields="name"
+                    DataNavigateUrlFormatString="ModelPage.aspx?name={0}" HeaderText="Name" />
                 <asp:BoundField DataField="faction" HeaderText="Faction" />
                 <asp:BoundField DataField="rank" HeaderText="Rank" />
                 <asp:BoundField DataField="_base" HeaderText="Base" />
