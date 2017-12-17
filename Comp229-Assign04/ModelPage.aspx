@@ -1,7 +1,118 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModelPage.aspx.cs" Inherits="Comp229_Assign04.ModelPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h2> Selected Model's detail</h2>
 
-    <asp:DetailsView ID="modelDetail" runat="server" AutoGenerateRows="false" >
+    <div>
+        <table>
+
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <asp:TextBox ID="modelName" runat="server" CssClass="table" Width="200" /></td>
+            </tr>
+
+            <tr>
+                <td>Faction:</td>
+                <td>
+                    <asp:TextBox ID="modelFaction" runat="server" CssClass="table" Width="200" /></td>
+            </tr>
+
+            <tr>
+                <td>Rank:</td>
+                <td>
+                    <asp:TextBox ID="modelRank" runat="server" CssClass="table" Width="200" /></td>
+            </tr>
+
+            <tr>
+                <td>Base:</td>
+                <td>
+                    <asp:TextBox ID="modelBase" runat="server" CssClass="table" Width="200"  /></td>
+            </tr>
+
+            <tr>
+                <td>Size:</td>
+                <td>
+                    <asp:TextBox ID="modelSize" runat="server" CssClass="table" Width="200"  /></td>
+            </tr>
+
+            <tr>
+                <td>Deployment Zone:</td>
+                <td>
+                    <asp:TextBox ID="modelDeploymentZone" runat="server" CssClass="table" Width="200"/></td>
+            </tr>
+
+            <tr>
+                <td>Traits:</td>
+                <td>
+                    <asp:Repeater runat="server" ID="traitsRep">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text="<%# Container.DataItem.ToString() %>"></asp:Label>
+                            <br />
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Types:</td>
+                <td>
+                    <asp:Repeater runat="server" ID="typeRep">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text="<%# Container.DataItem.ToString() %>"></asp:Label>
+                            <br />
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Defense Chart:</td>
+                <td>
+                    <asp:Repeater runat="server" ID="defRep">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text="<%# Container.DataItem.ToString() %>"></asp:Label>
+                            <br />
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Mobility:</td>
+                <td>
+                    <asp:TextBox ID="modelMobility" runat="server" CssClass="table" Width="150px"  /></td>
+            </tr>
+
+            <tr>
+                <td>Will Power:</td>
+                <td>
+                    <asp:TextBox ID="modelWillpower" runat="server" CssClass="table" Width="150px"  /></td>
+            </tr>
+
+            <tr>
+                <td>Resiliance:</td>
+                <td>
+                    <asp:TextBox ID="modelResiliance" runat="server" CssClass="table" Width="150px" /></td>
+            </tr>
+
+            <tr>
+                <td>Wounds:</td>
+                <td>
+                    <asp:TextBox ID="modelWounds" runat="server" CssClass="table" Width="150px" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <asp:Button ID="updateBtn" runat="server" Text="Update" OnClick="updateBtn_Click" />
+                </td>
+            </tr>
+        </table>
+        <br />
+
+
+    </div>
+
+    <%--<asp:DetailsView ID="modelDetail" runat="server" AutoGenerateRows="false" >
         <Fields>
             <asp:BoundField DataField="name" HeaderText="Name" />
             <asp:BoundField DataField="faction" HeaderText="Faction" />
@@ -15,7 +126,7 @@
                     <%# Eval("traits").ToString() %>
                 </ItemTemplate>
             </asp:TemplateField>--%>
-            <asp:BoundField DataField="traits" HeaderText="Traits" />
+            <%--<asp:BoundField DataField="traits" HeaderText="Traits" />
             <asp:BoundField DataField="types" HeaderText="Types" />
             <asp:BoundField DataField="defenseChart" HeaderText="Defense Chart" />
             <asp:BoundField DataField="mobility" HeaderText="Mobility" />
@@ -45,6 +156,5 @@
             <asp:BoundField DataField="name" HeaderText="Special Abilities" />
             <asp:BoundField DataField="description" HeaderText="Description" />
         </Fields>
-    </asp:DetailsView>
-
+    </asp:DetailsView>--%>--%>
 </asp:Content>

@@ -15,7 +15,7 @@ namespace Comp229_Assign04
     {
         List<Models> jsonList;
         string path = HttpContext.Current.Server.MapPath("~/Assets/Assign04.json");
-        string path2 = HttpContext.Current.Server.MapPath("~/Assets/Assign042.json");
+        string newPath = HttpContext.Current.Server.MapPath("~/Assets/Assign04-new.json");
 
         protected void Page_Load(object sender, EventArgs e)
         {    
@@ -65,7 +65,7 @@ namespace Comp229_Assign04
             };
 
             jsonList.Add(model);
-            File.WriteAllText(path2, JsonConvert.SerializeObject(jsonList));
+            File.WriteAllText(newPath, JsonConvert.SerializeObject(jsonList));
 
             Response.Redirect("Default.aspx");
         }

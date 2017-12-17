@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Comp229_Assign04._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
-    </div>
+  <%--  <div class="jumbotron">
+    </div>--%>
+    <h2> List of All Models</h2>
     <div>
         <asp:GridView ID="allModel" runat="server" AutoGenerateColumns="false">
             <Columns>
@@ -18,7 +19,7 @@
         <br />
     </div>
 
-    <div id="addition" runat="server">
+    <div runat="server">
         <h3>Add new model:</h3>
         <b>*Please fill all the blanks</b>
         <br />
